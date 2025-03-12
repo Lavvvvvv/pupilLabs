@@ -1,5 +1,5 @@
-import lib.get_data as get_data
+import lib.get_data_export as get_data
 
-calib=True
+calib=False
 print(get_data.getData(calib))
 

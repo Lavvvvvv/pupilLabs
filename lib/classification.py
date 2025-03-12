@@ -8,8 +8,7 @@ the return values are the "special events" that happen, so it only shows when th
 
 """
 import numpy as np
-from utils import discrete_to_continuous, continuous_to_discrete, _get_time
-import data_extractor as extr
+from lib.utils import discrete_to_continuous, continuous_to_discrete, _get_time
 import csv
 
 def classify_velocity(x, y, time, threshold=None, return_discrete=False):
@@ -186,15 +185,10 @@ def classify(gaze):
     return : classification nx2 numpy array containing (timestamp,"fixation" or "saccade")
     """
     
+    gaze_right_eye_x=gaze[:,0]
+    gaze_right_eye_y=gaze[:,1]
 
-    gaze_right_eye_x = gaze[:,3]
-    gaze_right_eye_y = gaze[:,4]
-    gaze_left_eye_x = gaze[:,0]
-    gaze_left_eye_y = gaze[:,1]   
-    device_time_stamp = gaze[:,14]
-
-    classification_right = classify_velocity(gaze_right_eye_x, gaze_right_eye_y, device_time_stamp,return_discrete=True)
-    classification_left = classify_velocity(gaze_left_eye_x, gaze_left_eye_y, device_time_stamp,return_discrete=True)
+    classification= classify_velocity(gaze_right_eye_x, gaze_right_eye_y, device_time_stamp,return_discrete=True)
     
     print("classified successfully")
     return classification_left,classification_right

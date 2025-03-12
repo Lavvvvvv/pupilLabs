@@ -5,13 +5,13 @@ import csv
 import shutil
 from datetime import datetime
 import os
-
+from lib.classification import classify
 
 def getData(calib:bool=True)-> np.array :
     '''
     getting data from eye tracker
     inputs: bool calib, if true, then calibration for monitor location is done, if false, then camera resolution will be used
-    returns: np array
+    returns: np array (gaze_x,gaze_y,pupil_diam_left,pupil_diam_right)
     '''
     if not calib:
         print("Looking for the next best device...")
@@ -43,7 +43,11 @@ def getData(calib:bool=True)-> np.array :
         #here
     
     try:
+        data_array=np.empty((0, 5)) #gaze_x,gaze_y,pupil_diam_left,pupil_diam_right
+        
         while True:
+            current_data=np.array[device.receive_gaze_datum().x,device.receive_gaze_datum().y,device.receive_gaze_datum().pupil_diameter_left,device.receive_gaze_datum().pupil_diameter_right,device.receive_gaze_datum().timestamp_unix_ns]
+            data_array = np.vstack([data_array, current_data])
             received_x=device.receive_gaze_datum().x
             if corner[0,0] < received_x < corner[1,0]:
                 x_normalized=received_x-corner[0,0]
@@ -87,6 +91,14 @@ def getData(calib:bool=True)-> np.array :
     finally:
         print("Stopping...")
         device.close()  # explicitly stop auto-update
-        
-        
+        np.savetxt("data.csv", data_array, delimiter=",", fmt="%d")
+        classify(data_array)
+        dataset_folder = datetime.today().strftime("%d.%m.%y")
+        if not os.path.exists(dataset_folder):
+            os.makedirs(dataset_folder)
+        shutil.move('screenCornerCalib.txt', os.path.join(dataset_folder, 'screenCornerCalib.txt'))
+        shutil.move('x_normalized.txt', os.path.join(dataset_folder, 'x_normalized.txt'))
+        shutil.move('y_normalized.txt', os.path.join(dataset_folder, 'y_normalized.txt'))
+        shutil.move(dataset_folder, os.path.join('test dataset', dataset_folder))
+        # device.streaming_stop()  # optional, if not called, stream is stopped on close
        
