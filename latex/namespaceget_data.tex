@@ -1,0 +1,230 @@
+\doxysection{get\+Data Namespace Reference}
+\hypertarget{namespaceget_data}{}\label{namespaceget_data}\index{getData@{getData}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceget_data_a58b01279754792e89a69419160de5b82}{setup\+\_\+logging}} ()
+\item 
+\mbox{\hyperlink{namespaceget_data_af02c5e22c81b3e538b47cc136190e635}{unproject\+\_\+points}} (points\+\_\+2d, camera\+\_\+matrix, distortion\+\_\+coefs, normalize=False)
+\item 
+\mbox{\hyperlink{namespaceget_data_a093a3ef00ebe0dbec9a752fd433f0c85}{cart\+\_\+to\+\_\+spherical}} (points\+\_\+3d, apply\+\_\+rad2deg=True)
+\item 
+\mbox{\hyperlink{namespaceget_data_adbc17b750dd483e2b7d158a3d544a016}{find\+\_\+ranged\+\_\+index}} (values, left\+\_\+boundaries, right\+\_\+boundaries)
+\item 
+\mbox{\hyperlink{namespaceget_data_a70a50c8f6da8704f39d1e940df52d40e}{export\+\_\+gaze}} (recording, export\+\_\+path, bool csv=True, bool hdf5=True, hdf5\+\_\+path=None)
+\item 
+\mbox{\hyperlink{namespaceget_data_acb32aa461604bdd004dac661d86d260e}{export\+\_\+blinks}} (recording, export\+\_\+path, bool csv=True, bool hdf5=True, hdf5\+\_\+path=None)
+\item 
+\mbox{\hyperlink{namespaceget_data_a29bce7717ef03166f71155961ed4568b}{export\+\_\+fixations}} (recording, export\+\_\+path, bool csv=True, bool hdf5=True, hdf5\+\_\+path=None)
+\item 
+\mbox{\hyperlink{namespaceget_data_adb07ff57cf1d766d456d828147a51baf}{export\+\_\+saccades}} (recording, export\+\_\+path, bool csv=True, bool hdf5=True, hdf5\+\_\+path=None)
+\item 
+\mbox{\hyperlink{namespaceget_data_a93d415f1d5ed76ca67b8ebd1c717ab99}{export\+\_\+eyestates}} (recording, export\+\_\+path, bool csv=True, bool hdf5=True, hdf5\+\_\+path=None)
+\item 
+\mbox{\hyperlink{namespaceget_data_a6ac8e4641f8597b9b03d0ceb0e09dc57}{export\+\_\+imu}} (recording, export\+\_\+path, bool csv=True, bool hdf5=True, hdf5\+\_\+path=None)
+\item 
+\mbox{\hyperlink{namespaceget_data_a90c7fb5467d65374e375227c11371594}{export\+\_\+events}} (recording, export\+\_\+path, bool csv=True, bool hdf5=True, hdf5\+\_\+path=None)
+\item 
+\mbox{\hyperlink{namespaceget_data_a7ab01d63b5d284b213818178107238aa}{export\+\_\+info}} (recording, export\+\_\+path)
+\item 
+\mbox{\hyperlink{namespaceget_data_afd5a487a1edab1575bd1b25954003279}{export\+\_\+scene\+\_\+camera\+\_\+calibration}} (recording, export\+\_\+path)
+\item 
+\mbox{\hyperlink{namespaceget_data_ab149c90a4799b576abeb827dae770ffd}{export\+\_\+world\+\_\+timestamps}} (recording, export\+\_\+path)
+\item 
+\mbox{\hyperlink{namespaceget_data_a7fd25ca7e500d986c794e88d6e086761}{export}} (bool csv=True, bool hdf5=True, str recording\+\_\+file=None, str recording\+\_\+number=None, str export\+\_\+path=None)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}This script exports data from a Pupil Labs Neon recording into various formats such as CSV and HDF5.
+It includes functions to export gaze data, blinks, fixations, saccades, eye states, IMU data, events, recording info, scene camera calibration, and world timestamps.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceget_data_a093a3ef00ebe0dbec9a752fd433f0c85}\label{namespaceget_data_a093a3ef00ebe0dbec9a752fd433f0c85} 
+\index{getData@{getData}!cart\_to\_spherical@{cart\_to\_spherical}}
+\index{cart\_to\_spherical@{cart\_to\_spherical}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{cart\_to\_spherical()}{cart\_to\_spherical()}}
+{\footnotesize\ttfamily get\+Data.\+cart\+\_\+to\+\_\+spherical (\begin{DoxyParamCaption}\item[{}]{points\+\_\+3d,  }\item[{}]{apply\+\_\+rad2deg = {\ttfamily True} }\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceget_data_a7fd25ca7e500d986c794e88d6e086761}\label{namespaceget_data_a7fd25ca7e500d986c794e88d6e086761} 
+\index{getData@{getData}!export@{export}}
+\index{export@{export}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{export()}{export()}}
+{\footnotesize\ttfamily get\+Data.\+export (\begin{DoxyParamCaption}\item[{bool }]{csv = {\ttfamily True},  }\item[{bool }]{hdf5 = {\ttfamily True},  }\item[{str }]{recording\+\_\+file = {\ttfamily None},  }\item[{str }]{recording\+\_\+number = {\ttfamily None},  }\item[{str }]{export\+\_\+path = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}main callable function to export data from a Pupil Labs recording.
+
+
+:param csv: Boolean indicating whether to export to CSV format.
+:param hdf5: Boolean indicating whether to export to HDF5 format.
+:param recording_file: The path to the recording file. If None, defaults to the parent directory of the current working directory.
+:param recording_number: The recording number. If None, defaults to the first directory in the recording file path.
+:param export_path: The path where the exported files will be saved. If None, defaults to a directory named "export" in the parent directory of the current working directory.
+:return: None\end{DoxyVerb}
+ \Hypertarget{namespaceget_data_acb32aa461604bdd004dac661d86d260e}\label{namespaceget_data_acb32aa461604bdd004dac661d86d260e} 
+\index{getData@{getData}!export\_blinks@{export\_blinks}}
+\index{export\_blinks@{export\_blinks}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{export\_blinks()}{export\_blinks()}}
+{\footnotesize\ttfamily get\+Data.\+export\+\_\+blinks (\begin{DoxyParamCaption}\item[{}]{recording,  }\item[{}]{export\+\_\+path,  }\item[{bool }]{csv = {\ttfamily True},  }\item[{bool }]{hdf5 = {\ttfamily True},  }\item[{}]{hdf5\+\_\+path = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Exports blink data from a recording to CSV and/or HDF5 format.
+
+
+:param recording: The recording object containing blink data.
+:param export_path: The path where the exported files will be saved.
+:param csv: Boolean indicating whether to export to CSV format.
+:param hdf5: Boolean indicating whether to export to HDF5 format.
+:param hdf5_path: The path for the HDF5 file if exporting to HDF5.
+:return: None\end{DoxyVerb}
+ \Hypertarget{namespaceget_data_a90c7fb5467d65374e375227c11371594}\label{namespaceget_data_a90c7fb5467d65374e375227c11371594} 
+\index{getData@{getData}!export\_events@{export\_events}}
+\index{export\_events@{export\_events}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{export\_events()}{export\_events()}}
+{\footnotesize\ttfamily get\+Data.\+export\+\_\+events (\begin{DoxyParamCaption}\item[{}]{recording,  }\item[{}]{export\+\_\+path,  }\item[{bool }]{csv = {\ttfamily True},  }\item[{bool }]{hdf5 = {\ttfamily True},  }\item[{}]{hdf5\+\_\+path = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Exports event data from a recording to CSV and/or HDF5 format.
+
+
+:param recording: The recording object containing event data.
+:param export_path: The path where the exported files will be saved.
+:param csv: Boolean indicating whether to export to CSV format.
+:param hdf5: Boolean indicating whether to export to HDF5 format.
+:param hdf5_path: The path for the HDF5 file if exporting to HDF5.
+:return: None
+\end{DoxyVerb}
+ \Hypertarget{namespaceget_data_a93d415f1d5ed76ca67b8ebd1c717ab99}\label{namespaceget_data_a93d415f1d5ed76ca67b8ebd1c717ab99} 
+\index{getData@{getData}!export\_eyestates@{export\_eyestates}}
+\index{export\_eyestates@{export\_eyestates}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{export\_eyestates()}{export\_eyestates()}}
+{\footnotesize\ttfamily get\+Data.\+export\+\_\+eyestates (\begin{DoxyParamCaption}\item[{}]{recording,  }\item[{}]{export\+\_\+path,  }\item[{bool }]{csv = {\ttfamily True},  }\item[{bool }]{hdf5 = {\ttfamily True},  }\item[{}]{hdf5\+\_\+path = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Exports eye state data from a recording to CSV and/or HDF5 format.
+
+
+:param recording: The recording object containing eye state data.
+:param export_path: The path where the exported files will be saved.
+:param csv: Boolean indicating whether to export to CSV format.
+:param hdf5: Boolean indicating whether to export to HDF5 format.
+:param hdf5_path: The path for the HDF5 file if exporting to HDF5.
+:return: None\end{DoxyVerb}
+ \Hypertarget{namespaceget_data_a29bce7717ef03166f71155961ed4568b}\label{namespaceget_data_a29bce7717ef03166f71155961ed4568b} 
+\index{getData@{getData}!export\_fixations@{export\_fixations}}
+\index{export\_fixations@{export\_fixations}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{export\_fixations()}{export\_fixations()}}
+{\footnotesize\ttfamily get\+Data.\+export\+\_\+fixations (\begin{DoxyParamCaption}\item[{}]{recording,  }\item[{}]{export\+\_\+path,  }\item[{bool }]{csv = {\ttfamily True},  }\item[{bool }]{hdf5 = {\ttfamily True},  }\item[{}]{hdf5\+\_\+path = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Exports fixation data from a recording to CSV and/or HDF5 format.
+
+
+:param recording: The recording object containing fixation data.
+:param export_path: The path where the exported files will be saved.
+:param csv: Boolean indicating whether to export to CSV format.
+:param hdf5: Boolean indicating whether to export to HDF5 format.
+:param hdf5_path: The path for the HDF5 file if exporting to HDF5.
+:return: None
+\end{DoxyVerb}
+ \Hypertarget{namespaceget_data_a70a50c8f6da8704f39d1e940df52d40e}\label{namespaceget_data_a70a50c8f6da8704f39d1e940df52d40e} 
+\index{getData@{getData}!export\_gaze@{export\_gaze}}
+\index{export\_gaze@{export\_gaze}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{export\_gaze()}{export\_gaze()}}
+{\footnotesize\ttfamily get\+Data.\+export\+\_\+gaze (\begin{DoxyParamCaption}\item[{}]{recording,  }\item[{}]{export\+\_\+path,  }\item[{bool }]{csv = {\ttfamily True},  }\item[{bool }]{hdf5 = {\ttfamily True},  }\item[{}]{hdf5\+\_\+path = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Exports gaze data from a recording to CSV and/or HDF5 format.
+
+
+:param recording: The recording object containing gaze data.
+:param export_path: The path where the exported files will be saved.
+:param csv: Boolean indicating whether to export to CSV format.
+:param hdf5: Boolean indicating whether to export to HDF5 format.
+:param hdf5_path: The path for the HDF5 file if exporting to HDF5.
+:return: None\end{DoxyVerb}
+ \Hypertarget{namespaceget_data_a6ac8e4641f8597b9b03d0ceb0e09dc57}\label{namespaceget_data_a6ac8e4641f8597b9b03d0ceb0e09dc57} 
+\index{getData@{getData}!export\_imu@{export\_imu}}
+\index{export\_imu@{export\_imu}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{export\_imu()}{export\_imu()}}
+{\footnotesize\ttfamily get\+Data.\+export\+\_\+imu (\begin{DoxyParamCaption}\item[{}]{recording,  }\item[{}]{export\+\_\+path,  }\item[{bool }]{csv = {\ttfamily True},  }\item[{bool }]{hdf5 = {\ttfamily True},  }\item[{}]{hdf5\+\_\+path = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Exports IMU data from a recording to CSV and/or HDF5 format.
+
+
+:param recording: The recording object containing IMU data.
+:param export_path: The path where the exported files will be saved.
+:param csv: Boolean indicating whether to export to CSV format.
+:param hdf5: Boolean indicating whether to export to HDF5 format.
+:param hdf5_path: The path for the HDF5 file if exporting to HDF5.
+:return: None
+\end{DoxyVerb}
+ \Hypertarget{namespaceget_data_a7ab01d63b5d284b213818178107238aa}\label{namespaceget_data_a7ab01d63b5d284b213818178107238aa} 
+\index{getData@{getData}!export\_info@{export\_info}}
+\index{export\_info@{export\_info}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{export\_info()}{export\_info()}}
+{\footnotesize\ttfamily get\+Data.\+export\+\_\+info (\begin{DoxyParamCaption}\item[{}]{recording,  }\item[{}]{export\+\_\+path }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Exports recording information to a JSON file.
+
+:param recording: The recording object containing information.
+:param export_path: The path where the exported file will be saved.\end{DoxyVerb}
+ \Hypertarget{namespaceget_data_adb07ff57cf1d766d456d828147a51baf}\label{namespaceget_data_adb07ff57cf1d766d456d828147a51baf} 
+\index{getData@{getData}!export\_saccades@{export\_saccades}}
+\index{export\_saccades@{export\_saccades}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{export\_saccades()}{export\_saccades()}}
+{\footnotesize\ttfamily get\+Data.\+export\+\_\+saccades (\begin{DoxyParamCaption}\item[{}]{recording,  }\item[{}]{export\+\_\+path,  }\item[{bool }]{csv = {\ttfamily True},  }\item[{bool }]{hdf5 = {\ttfamily True},  }\item[{}]{hdf5\+\_\+path = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Exports saccade data from a recording to CSV and/or HDF5 format.
+
+
+:param recording: The recording object containing saccade data.
+:param export_path: The path where the exported files will be saved.
+:param csv: Boolean indicating whether to export to CSV format.
+:param hdf5: Boolean indicating whether to export to HDF5 format.
+:param hdf5_path: The path for the HDF5 file if exporting to HDF5.
+:return: None
+\end{DoxyVerb}
+ \Hypertarget{namespaceget_data_afd5a487a1edab1575bd1b25954003279}\label{namespaceget_data_afd5a487a1edab1575bd1b25954003279} 
+\index{getData@{getData}!export\_scene\_camera\_calibration@{export\_scene\_camera\_calibration}}
+\index{export\_scene\_camera\_calibration@{export\_scene\_camera\_calibration}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{export\_scene\_camera\_calibration()}{export\_scene\_camera\_calibration()}}
+{\footnotesize\ttfamily get\+Data.\+export\+\_\+scene\+\_\+camera\+\_\+calibration (\begin{DoxyParamCaption}\item[{}]{recording,  }\item[{}]{export\+\_\+path }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Exports scene camera calibration data to a JSON file.
+
+
+:param recording: The recording object containing camera calibration data.
+:param export_path: The path where the exported file will be saved.\end{DoxyVerb}
+ \Hypertarget{namespaceget_data_ab149c90a4799b576abeb827dae770ffd}\label{namespaceget_data_ab149c90a4799b576abeb827dae770ffd} 
+\index{getData@{getData}!export\_world\_timestamps@{export\_world\_timestamps}}
+\index{export\_world\_timestamps@{export\_world\_timestamps}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{export\_world\_timestamps()}{export\_world\_timestamps()}}
+{\footnotesize\ttfamily get\+Data.\+export\+\_\+world\+\_\+timestamps (\begin{DoxyParamCaption}\item[{}]{recording,  }\item[{}]{export\+\_\+path }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Exports world timestamps from a recording to a CSV file.
+:param recording: The recording object containing world timestamps.
+:param export_path: The path where the exported file will be saved.
+\end{DoxyVerb}
+ \Hypertarget{namespaceget_data_adbc17b750dd483e2b7d158a3d544a016}\label{namespaceget_data_adbc17b750dd483e2b7d158a3d544a016} 
+\index{getData@{getData}!find\_ranged\_index@{find\_ranged\_index}}
+\index{find\_ranged\_index@{find\_ranged\_index}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{find\_ranged\_index()}{find\_ranged\_index()}}
+{\footnotesize\ttfamily get\+Data.\+find\+\_\+ranged\+\_\+index (\begin{DoxyParamCaption}\item[{}]{values,  }\item[{}]{left\+\_\+boundaries,  }\item[{}]{right\+\_\+boundaries }\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceget_data_a58b01279754792e89a69419160de5b82}\label{namespaceget_data_a58b01279754792e89a69419160de5b82} 
+\index{getData@{getData}!setup\_logging@{setup\_logging}}
+\index{setup\_logging@{setup\_logging}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{setup\_logging()}{setup\_logging()}}
+{\footnotesize\ttfamily get\+Data.\+setup\+\_\+logging (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Sets up logging configuration. Create a log directory if it does not exist, and configure logging to output to both the console and a file.\end{DoxyVerb}
+ \Hypertarget{namespaceget_data_af02c5e22c81b3e538b47cc136190e635}\label{namespaceget_data_af02c5e22c81b3e538b47cc136190e635} 
+\index{getData@{getData}!unproject\_points@{unproject\_points}}
+\index{unproject\_points@{unproject\_points}!getData@{getData}}
+\doxysubsubsection{\texorpdfstring{unproject\_points()}{unproject\_points()}}
+{\footnotesize\ttfamily get\+Data.\+unproject\+\_\+points (\begin{DoxyParamCaption}\item[{}]{points\+\_\+2d,  }\item[{}]{camera\+\_\+matrix,  }\item[{}]{distortion\+\_\+coefs,  }\item[{}]{normalize = {\ttfamily False} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Undistorts points according to the camera model.
+
+:param pts_2d, shape: Nx2
+:return: Array of unprojected 3d points, shape: Nx3
+\end{DoxyVerb}
+ 

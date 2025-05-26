@@ -1,10 +1,7 @@
-# import h5py
-# import numpy as np
-
-# f = h5py.File(r"C:\Storage\Lavinda\Work\iabg\pupillabs\pupilLabs\eyeTrack(1).hdf5")
-# fixation_data = f["fixation"].keys()  # Read the dataset contents
-# print(fixation_data)
-# f.close()
+'''
+This script exports data from a Pupil Labs Neon recording into various formats such as CSV and HDF5.
+It includes functions to export gaze data, blinks, fixations, saccades, eye states, IMU data, events, recording info, scene camera calibration, and world timestamps.
+'''
 
 import json
 import sys
@@ -24,6 +21,12 @@ import logging
 
 
 def setup_logging():
+    """
+    
+    Sets up logging configuration. Create a log directory if it does not exist, and configure logging to output to both the console and a file.
+    
+    
+    """
     log_dir = Path("log")
     if not log_dir.exists():
         log_dir.mkdir(parents=True, exist_ok=True)
@@ -66,6 +69,7 @@ def unproject_points(points_2d, camera_matrix, distortion_coefs, normalize=False
 
 
 def cart_to_spherical(points_3d, apply_rad2deg=True):
+    
     points_3d = np.asarray(points_3d)
     # convert cartesian to spherical coordinates
     # source: http://stackoverflow.com/questions/4116658/faster-numpy-cartesian-to-spherical-coordinate-conversion
@@ -97,6 +101,19 @@ def find_ranged_index(values, left_boundaries, right_boundaries):
 
 
 def export_gaze(recording, export_path,csv: bool = True, hdf5: bool = True, hdf5_path= None):
+    """
+    Exports gaze data from a recording to CSV and/or HDF5 format.
+    
+    
+    :param recording: The recording object containing gaze data.
+    :param export_path: The path where the exported files will be saved.
+    :param csv: Boolean indicating whether to export to CSV format.
+    :param hdf5: Boolean indicating whether to export to HDF5 format.
+    :param hdf5_path: The path for the HDF5 file if exporting to HDF5.
+    :return: None
+    
+    """
+
     fixations = recording.fixations[recording.fixations["event_type"] == 1]
 
     fixation_ids = (
@@ -160,6 +177,18 @@ def export_gaze(recording, export_path,csv: bool = True, hdf5: bool = True, hdf5
 
 
 def export_blinks(recording, export_path,csv: bool = True, hdf5: bool = True, hdf5_path= None):
+    """
+    Exports blink data from a recording to CSV and/or HDF5 format.
+
+
+    :param recording: The recording object containing blink data.
+    :param export_path: The path where the exported files will be saved.
+    :param csv: Boolean indicating whether to export to CSV format.
+    :param hdf5: Boolean indicating whether to export to HDF5 format.
+    :param hdf5_path: The path for the HDF5 file if exporting to HDF5.
+    :return: None
+    
+    """
     blinks = pd.DataFrame({
         "recording id": recording.info["recording_id"],
         "blink id": 1 + np.arange(len(recording.blinks)),
@@ -191,6 +220,17 @@ def export_blinks(recording, export_path,csv: bool = True, hdf5: bool = True, hd
 
 
 def export_fixations(recording, export_path,csv: bool = True, hdf5: bool = True, hdf5_path= None):
+    """
+    Exports fixation data from a recording to CSV and/or HDF5 format.
+
+
+    :param recording: The recording object containing fixation data.
+    :param export_path: The path where the exported files will be saved.
+    :param csv: Boolean indicating whether to export to CSV format.
+    :param hdf5: Boolean indicating whether to export to HDF5 format.
+    :param hdf5_path: The path for the HDF5 file if exporting to HDF5.
+    :return: None
+    """
     fixations_only = recording.fixations[recording.fixations["event_type"] == 1]
 
     spherical_coords = cart_to_spherical(
@@ -237,6 +277,17 @@ def export_fixations(recording, export_path,csv: bool = True, hdf5: bool = True,
 
 
 def export_saccades(recording, export_path,csv: bool = True, hdf5: bool = True, hdf5_path= None):
+    """
+    Exports saccade data from a recording to CSV and/or HDF5 format.
+
+
+    :param recording: The recording object containing saccade data.
+    :param export_path: The path where the exported files will be saved.
+    :param csv: Boolean indicating whether to export to CSV format.
+    :param hdf5: Boolean indicating whether to export to HDF5 format.
+    :param hdf5_path: The path for the HDF5 file if exporting to HDF5.
+    :return: None
+    """
     saccades_only = recording.fixations[recording.fixations["event_type"] == 0]
 
     saccades = pd.DataFrame({
@@ -274,6 +325,18 @@ def export_saccades(recording, export_path,csv: bool = True, hdf5: bool = True, 
 
 
 def export_eyestates(recording, export_path,csv: bool = True, hdf5: bool = True, hdf5_path= None):
+    """
+    Exports eye state data from a recording to CSV and/or HDF5 format.
+
+
+    :param recording: The recording object containing eye state data.
+    :param export_path: The path where the exported files will be saved.
+    :param csv: Boolean indicating whether to export to CSV format.
+    :param hdf5: Boolean indicating whether to export to HDF5 format.
+    :param hdf5_path: The path for the HDF5 file if exporting to HDF5.
+    :return: None
+    
+    """
     es = recording.eye_state
     eyestates = pd.DataFrame({
         "recording id": recording.info["recording_id"],
@@ -323,6 +386,17 @@ def export_eyestates(recording, export_path,csv: bool = True, hdf5: bool = True,
 
 
 def export_imu(recording, export_path,csv: bool = True, hdf5: bool = True, hdf5_path= None):
+    """
+    Exports IMU data from a recording to CSV and/or HDF5 format.
+
+
+    :param recording: The recording object containing IMU data.
+    :param export_path: The path where the exported files will be saved.
+    :param csv: Boolean indicating whether to export to CSV format.
+    :param hdf5: Boolean indicating whether to export to HDF5 format.
+    :param hdf5_path: The path for the HDF5 file if exporting to HDF5.
+    :return: None
+    """
     rotations = Rotation.from_quat(recording.imu.quaternion_wxyz, scalar_first=True)
     eulers = rotations.as_euler(seq="yxz", degrees=True)
 
@@ -367,6 +441,17 @@ def export_imu(recording, export_path,csv: bool = True, hdf5: bool = True, hdf5_
 
 
 def export_events(recording, export_path,csv: bool = True, hdf5: bool = True, hdf5_path= None):
+    """
+    Exports event data from a recording to CSV and/or HDF5 format.
+
+
+    :param recording: The recording object containing event data.
+    :param export_path: The path where the exported files will be saved.
+    :param csv: Boolean indicating whether to export to CSV format.
+    :param hdf5: Boolean indicating whether to export to HDF5 format.
+    :param hdf5_path: The path for the HDF5 file if exporting to HDF5.
+    :return: None
+    """
     events = pd.DataFrame({
         "recording id": recording.info["recording_id"],
         "timestamp [ns]": recording.events.ts,
@@ -396,12 +481,28 @@ def export_events(recording, export_path,csv: bool = True, hdf5: bool = True, hd
             return
 
 
-def export_info(recording, export_path,csv: bool = True, hdf5: bool = True, hdf5_path= None):
+def export_info(recording, export_path):
+    """
+    Exports recording information to a JSON file.
+    
+    :param recording: The recording object containing information.
+    :param export_path: The path where the exported file will be saved.
+
+    """
+
     with (export_path / "info.json").open("w") as f:
         json.dump(recording.info, f, indent=4, sort_keys=True)
 
 
-def export_scene_camera_calibration(recording, export_path,csv: bool = True, hdf5: bool = True, hdf5_path= None):
+def export_scene_camera_calibration(recording, export_path):
+    """
+    Exports scene camera calibration data to a JSON file.
+
+
+    :param recording: The recording object containing camera calibration data.
+    :param export_path: The path where the exported file will be saved.
+    
+    """
     distortion = recording.calibration.scene_distortion_coefficients.reshape([1, -1])
     camera_info = {
         "camera_matrix": recording.calibration.scene_camera_matrix.tolist(),
@@ -412,7 +513,12 @@ def export_scene_camera_calibration(recording, export_path,csv: bool = True, hdf
         json.dump(camera_info, f, indent=4, sort_keys=True)
 
 
-def export_world_timestamps(recording, export_path,csv: bool = True, hdf5: bool = True, hdf5_path= None):
+def export_world_timestamps(recording, export_path):
+    """
+    Exports world timestamps from a recording to a CSV file.
+    :param recording: The recording object containing world timestamps.
+    :param export_path: The path where the exported file will be saved.
+    """
     events = pd.DataFrame({
         "recording id": recording.info["recording_id"],
         "timestamp [ns]": recording.scene.ts,
@@ -423,6 +529,19 @@ def export_world_timestamps(recording, export_path,csv: bool = True, hdf5: bool 
     print(f"Wrote {export_file}")
 
 def export(csv: bool =True, hdf5: bool = True, recording_file: str = None, recording_number: str = None,export_path: str = None):
+    """
+    main callable function to export data from a Pupil Labs recording.
+
+    
+    :param csv: Boolean indicating whether to export to CSV format.
+    :param hdf5: Boolean indicating whether to export to HDF5 format.
+    :param recording_file: The path to the recording file. If None, defaults to the parent directory of the current working directory.
+    :param recording_number: The recording number. If None, defaults to the first directory in the recording file path.
+    :param export_path: The path where the exported files will be saved. If None, defaults to a directory named "export" in the parent directory of the current working directory.
+    :return: None
+
+    """
+    
     setup_logging()
 
     try: # check if recording file and number are provided, if not, use default values

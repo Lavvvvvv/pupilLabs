@@ -1,3 +1,14 @@
+'''
+Program runfile to export data from Pupil Labs recordings to CSV and HDF5 formats. referencing lib/getData.py
+hdf5 files can be read again as a pandas DataFrame.An example of how to do this is in examples/extractHDF5.py
+
+
+
+'''
+
+
+
+
 import lib.getData as getData
 from pathlib import Path
 import h5py
