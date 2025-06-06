@@ -6,22 +6,23 @@ hdf5 files can be read again as a pandas DataFrame.An example of how to do this 
 
 '''
 
-
-
-
 import lib.getData as getData
+import json
 from pathlib import Path
-import h5py
-import pandas as pd
-import numpy as np
+import lib.getData as getData
 
-recording_file=r'C:\Storage\Lavinda\Work\iabg\pupillabs\pupilLabs\testDataset'
-recording_number=r'2025-05-07-10-36-27_1'
-export_path=r'C:\Storage\Lavinda\Work\iabg\pupillabs\pupilLabs\export'
+# Load config file
+with open("config.json", "r") as f:
+    config = json.load(f)
 
+# Extract parameters
+recording_file = config["recording_file"]
+recording_number = config["recording_number"]
+export_path = config["export_path"]
+export_csv = config.get("csv", True)
+export_hdf5 = config.get("hdf5", True)
 
-getData.export(csv=True, hdf5=True, recording_file=recording_file, recording_number=recording_number, export_path=export_path)
-
-
+# Call export
+getData.export(csv=export_csv, hdf5=export_hdf5, recording_file=recording_file, recording_number=recording_number, export_path=export_path)
 
 

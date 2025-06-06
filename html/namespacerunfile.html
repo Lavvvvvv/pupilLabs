@@ -79,22 +79,40 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ae4e027a5ab02d9b3234861e0f5a5a5ea" id="r_ae4e027a5ab02d9b3234861e0f5a5a5ea"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4e027a5ab02d9b3234861e0f5a5a5ea">recording_file</a> = r'C:\Storage\Lavinda\Work\iabg\pupillabs\pupilLabs\testDataset'</td></tr>
+<tr class="memitem:a5f037f6fcbe78342a1dab0050bff6ea0" id="r_a5f037f6fcbe78342a1dab0050bff6ea0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f037f6fcbe78342a1dab0050bff6ea0">config</a> = json.load(f)</td></tr>
+<tr class="separator:a5f037f6fcbe78342a1dab0050bff6ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4e027a5ab02d9b3234861e0f5a5a5ea" id="r_ae4e027a5ab02d9b3234861e0f5a5a5ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4e027a5ab02d9b3234861e0f5a5a5ea">recording_file</a> = <a class="el" href="#a5f037f6fcbe78342a1dab0050bff6ea0">config</a>[&quot;recording_file&quot;]</td></tr>
 <tr class="separator:ae4e027a5ab02d9b3234861e0f5a5a5ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d8d8fc039fb11169da05d950d74b791" id="r_a5d8d8fc039fb11169da05d950d74b791"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d8d8fc039fb11169da05d950d74b791">recording_number</a> = r'2025-05-07-10-36-27_1'</td></tr>
+<tr class="memitem:a5d8d8fc039fb11169da05d950d74b791" id="r_a5d8d8fc039fb11169da05d950d74b791"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d8d8fc039fb11169da05d950d74b791">recording_number</a> = <a class="el" href="#a5f037f6fcbe78342a1dab0050bff6ea0">config</a>[&quot;recording_number&quot;]</td></tr>
 <tr class="separator:a5d8d8fc039fb11169da05d950d74b791"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40a8ac33fc71084ef33c5f00b503c1e8" id="r_a40a8ac33fc71084ef33c5f00b503c1e8"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40a8ac33fc71084ef33c5f00b503c1e8">export_path</a> = r'C:\Storage\Lavinda\Work\iabg\pupillabs\pupilLabs\export'</td></tr>
+<tr class="memitem:a40a8ac33fc71084ef33c5f00b503c1e8" id="r_a40a8ac33fc71084ef33c5f00b503c1e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40a8ac33fc71084ef33c5f00b503c1e8">export_path</a> = <a class="el" href="#a5f037f6fcbe78342a1dab0050bff6ea0">config</a>[&quot;export_path&quot;]</td></tr>
 <tr class="separator:a40a8ac33fc71084ef33c5f00b503c1e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4e6b62307f9af71ab4989916a2162de" id="r_ab4e6b62307f9af71ab4989916a2162de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4e6b62307f9af71ab4989916a2162de">export_csv</a> = config.get(&quot;csv&quot;, True)</td></tr>
+<tr class="separator:ab4e6b62307f9af71ab4989916a2162de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1f470aa8c1dba9d0f556812b5969834" id="r_aa1f470aa8c1dba9d0f556812b5969834"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1f470aa8c1dba9d0f556812b5969834">export_hdf5</a> = config.get(&quot;hdf5&quot;, True)</td></tr>
+<tr class="separator:aa1f470aa8c1dba9d0f556812b5969834"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55fd13ee01da08be340c755195b803e6" id="r_a55fd13ee01da08be340c755195b803e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55fd13ee01da08be340c755195b803e6">csv</a></td></tr>
 <tr class="separator:a55fd13ee01da08be340c755195b803e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bb87043128efe25aa0df41c3e9bce03" id="r_a6bb87043128efe25aa0df41c3e9bce03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bb87043128efe25aa0df41c3e9bce03">True</a></td></tr>
-<tr class="separator:a6bb87043128efe25aa0df41c3e9bce03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e2246ffca37a5c2b913d596d9e55804" id="r_a9e2246ffca37a5c2b913d596d9e55804"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e2246ffca37a5c2b913d596d9e55804">hdf5</a></td></tr>
 <tr class="separator:a9e2246ffca37a5c2b913d596d9e55804"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">Program runfile to export data from Pupil Labs recordings to CSV and HDF5 formats. referencing lib/getData.py
 hdf5 files can be read again as a pandas DataFrame.An example of how to do this is in examples/extractHDF5.py</pre> </div><h2 class="groupheader">Variable Documentation</h2>
+<a id="a5f037f6fcbe78342a1dab0050bff6ea0" name="a5f037f6fcbe78342a1dab0050bff6ea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f037f6fcbe78342a1dab0050bff6ea0">&#9670;&#160;</a></span>config</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">runfile.config = json.load(f)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a55fd13ee01da08be340c755195b803e6" name="a55fd13ee01da08be340c755195b803e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a55fd13ee01da08be340c755195b803e6">&#9670;&#160;</a></span>csv</h2>
 
@@ -109,6 +127,34 @@ hdf5 files can be read again as a pandas DataFrame.An example of how to do this 
 
 </div>
 </div>
+<a id="ab4e6b62307f9af71ab4989916a2162de" name="ab4e6b62307f9af71ab4989916a2162de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4e6b62307f9af71ab4989916a2162de">&#9670;&#160;</a></span>export_csv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">runfile.export_csv = config.get(&quot;csv&quot;, True)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa1f470aa8c1dba9d0f556812b5969834" name="aa1f470aa8c1dba9d0f556812b5969834"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1f470aa8c1dba9d0f556812b5969834">&#9670;&#160;</a></span>export_hdf5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">runfile.export_hdf5 = config.get(&quot;hdf5&quot;, True)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a40a8ac33fc71084ef33c5f00b503c1e8" name="a40a8ac33fc71084ef33c5f00b503c1e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a40a8ac33fc71084ef33c5f00b503c1e8">&#9670;&#160;</a></span>export_path</h2>
 
@@ -116,7 +162,7 @@ hdf5 files can be read again as a pandas DataFrame.An example of how to do this 
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">runfile.export_path = r'C:\Storage\Lavinda\Work\iabg\pupillabs\pupilLabs\export'</td>
+          <td class="memname">runfile.export_path = <a class="el" href="#a5f037f6fcbe78342a1dab0050bff6ea0">config</a>[&quot;export_path&quot;]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -144,7 +190,7 @@ hdf5 files can be read again as a pandas DataFrame.An example of how to do this 
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">runfile.recording_file = r'C:\Storage\Lavinda\Work\iabg\pupillabs\pupilLabs\testDataset'</td>
+          <td class="memname">runfile.recording_file = <a class="el" href="#a5f037f6fcbe78342a1dab0050bff6ea0">config</a>[&quot;recording_file&quot;]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -158,21 +204,7 @@ hdf5 files can be read again as a pandas DataFrame.An example of how to do this 
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">runfile.recording_number = r'2025-05-07-10-36-27_1'</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6bb87043128efe25aa0df41c3e9bce03" name="a6bb87043128efe25aa0df41c3e9bce03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bb87043128efe25aa0df41c3e9bce03">&#9670;&#160;</a></span>True</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">runfile.True</td>
+          <td class="memname">runfile.recording_number = <a class="el" href="#a5f037f6fcbe78342a1dab0050bff6ea0">config</a>[&quot;recording_number&quot;]</td>
         </tr>
       </table>
 </div><div class="memdoc">
