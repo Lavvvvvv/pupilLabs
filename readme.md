@@ -14,5 +14,7 @@ Pandas data structure is saved in this file format to allow easy access to the r
 
 this project uses the library doxygen, installing link can be found [here](https://www.doxygen.nl/download.html), full documentation can be found here [doxygen_docu](https://www.doxygen.nl/manual/index.html). 
 
-in this repository, a doxygen file is already initialize. To regenerate documentation, run `doxygen Doxyfile`
+in this repository, a doxygen file is already initialize. To regenerate documentation, run `doxygen Doxyfile`.
+
+inside `latex\refman.pdf` is where to find the updated doxygen documentation
 
