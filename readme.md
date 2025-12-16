@@ -18,3 +18,17 @@ in this repository, a doxygen file is already initialize. To regenerate document
 
 inside `latex\refman.pdf` is where to find the updated doxygen documentation
 
+## How to run
+
+1. Edit the config.json file
+   {
+  "recording_file": "-",      (input path to the folder containing the recordings (not recording folder from pupillab phone))
+  "recording_number": "-",    (input the name of the recording from pupillab phone)
+  "export_path": "-",         (input where the export folder should be)
+  "csv": true,                (true if csv output is used)
+  "hdf5": true                (true if hdf5 is used)
+}
+
+2. run the runfile.py
+
+
